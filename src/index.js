@@ -34,4 +34,32 @@ function refreshTime() {
     .format("MMMM Do YYYY");
   sydneyTimeElement.innerHTML = sydneyTime;
 }
+
 setInterval(refreshTime, 10);
+
+function updateCity(event) {
+  let cityTZ = event.target.value;
+
+  let cityName = cityTZ.replace("_", " ").split("/")[1];
+  if (cityTZ === "moment.tz.guess()") {
+    cityName = "Local Time";
+  }
+
+  let cityTime = moment().tz(cityTZ);
+  let sampleCitiesElement = document.querySelector("#sample-cities");
+
+  citiesSelectElement = ` 
+  <div class="city" >
+          <div>
+            <h2>${cityName}</h2>
+            <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
+          </div>
+          <div class="time">${cityTime.format(
+            "h:mm:ss"
+          )}<small>${cityTime.format(" A")}</small></div>
+        </div>`;
+  sampleCitiesElement.innerHTML = citiesSelectElement;
+}
+
+let citiesSelectElement = document.querySelector("#cities");
+citiesSelectElement.addEventListener("change", updateCity);
