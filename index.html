@@ -9,12 +9,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.37/moment-timezone-with-data-1970-2030.min.js"></script>
   </head>
   <body>
-    <h1>World Clock</h1>
+    <div class="container">
+      <h1>World Clock</h1>
+      <select name="cities" id="cities">
+        <option value="">Select a city!</option>
+        <option value="los-angeles">Los Angeles</option>
+        <option value="london">London</option>
+        <option value="sydney">Sydney</option>
+      </select>
+      <hr />
+      <div class="city">
+        <h2>Los Angeles</h2>
+        <div class="date">August 15th 2022</div>
+        <div class="time">2:59:13 AM</div>
+      </div>
+      <hr />
+      <div class="city">
+        <h2>London</h2>
+        <div class="date">August 15th 2022</div>
+        <div class="time">11:59:13 AM</div>
+      </div>
+      <hr />
+      <div class="city">
+        <h2>Sydney</h2>
+        <div class="date">August 15th 2022</div>
+        <div class="time">8:59:13 AM</div>
+      </div>
+    </div>
     <footer>
       This Project was coded by
       <a href="https://github.com/JessicaBoos">Jessica Boos</a> and open sourced
       on <a href="https://github.com/JessicaBoos/WorldClock">Github</a>.
     </footer>
+
     <script src="src/index.js"></script>
   </body>
 </html>
