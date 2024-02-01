@@ -41,7 +41,7 @@ function updateCity(event) {
   let cityTZ = event.target.value;
 
   let cityName = cityTZ.replace("_", " ").split("/")[1];
-  if (cityTZ === "moment.tz.guess()") {
+  if (cityTZ === "current") {
     cityName = "Local Time";
   }
 
@@ -59,6 +59,9 @@ function updateCity(event) {
           )}<small>${cityTime.format(" A")}</small></div>
         </div>`;
   sampleCitiesElement.innerHTML = citiesSelectElement;
+  setTimeout(() => {
+    updateCity(event);
+  }, 1000);
 }
 
 let citiesSelectElement = document.querySelector("#cities");
